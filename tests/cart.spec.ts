@@ -8,7 +8,7 @@ test.describe('Cart Feature', () => {
     await page.goto('/inventory.html');
   });
 
-  test('Add single item to cart', async ({ page }) => {
+test('Add single item to cart', async ({ page }) => {
     const inv = new InventoryPage(page);
     const cart = new CartPage(page);
 
@@ -16,7 +16,7 @@ test.describe('Cart Feature', () => {
     await inv.goToCart();
 
     expect(await cart.getCount()).toBe(1);
-  });
+await expect(page.locator('.cart_item_label').first()).toContainText('Sauce Labs Backpack');  });
 
   test('Add multiple items to cart', async ({ page }) => {
     const inv = new InventoryPage(page);

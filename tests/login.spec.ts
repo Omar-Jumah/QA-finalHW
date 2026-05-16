@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const users = [
-  { username: 'standard_user', password: 'secret_sauce', success: true },
+  { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD!, success: true },
   { username: 'wrong_user', password: 'wrong_pass', success: false },
 ];
 
